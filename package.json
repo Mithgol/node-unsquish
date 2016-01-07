@@ -14,6 +14,7 @@
 },
 "dependencies": {
    "ciel": "~0.2.0",
+   "fidoconfig": "~0.2.5",
    "fidonet-squish": "0.0.39"
 }
 }
