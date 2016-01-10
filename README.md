@@ -24,6 +24,16 @@ You may now move that directory (for example, on a flash drive) across syst
 
 Unlike the above (`npm -g`), the application does not appear in the `PATH`, and thus you'll have to run it directly from the application's directory. You'll also have to use `node unsquish [parameters]` instead of `unsquish [parameters]`.
 
+## Testing the application
+
+[![(build testing status)](https://img.shields.io/travis/Mithgol/node-unsquish/master.svg?style=plastic)](https://travis-ci.org/Mithgol/node-unsquish)
+
+It is necessary to install [JSHint](http://jshint.com/) for testing.
+
+* You may install JSHint globally (`npm install jshint -g`) or locally (`npm install jshint` in the directory of unsquish).
+
+After that you may run `npm test` (in the directory of unsquish). Only the JS code errors are caught; the code's behaviour is not tested.
+
 ## License
 
 MIT license (see the `LICENSE` file).
