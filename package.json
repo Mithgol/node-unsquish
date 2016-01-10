@@ -2,7 +2,7 @@
 "name": "unsquish",
 "bin": "./unsquish.js",
 "preferGlobal": true,
-"main": "unsquish.js",
+"main": "uns-core.js",
 "version": "0.0.1",
 "description": "Extracts Fidonet messages from Squish message bases, saves in JAM.",
 "keywords": ["Fidonet", "Fido", "Squish", "JAM"],
@@ -16,5 +16,8 @@
    "ciel": "~0.2.0",
    "fidoconfig": "~0.2.5",
    "fidonet-squish": "0.0.39"
+},
+"scripts": {
+   "test": "jshint --verbose unsquish.js uns-core.js"
 }
 }
