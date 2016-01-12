@@ -1,5 +1,10 @@
+var cl = require('ciel');
+var fidoconfig = require('fidoconfig');
+var Squish = require('fidonet-squish');
+
 var clog = console.log;
 
 module.exports = filenameHPT => {
-   clog(`Reading area descriptions from ${filenameHPT}...`);
+   cl.status(`Operating on area descriptions from ${filenameHPT}`);
+   var echoconf = fidoconfig.areas(filenameHPT);
 };
