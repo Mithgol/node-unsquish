@@ -22,7 +22,7 @@ module.exports = filenameHPT => {
       nextAreaPath => /\[.*\]/.test(nextAreaPath.areaPath)
    );
    if( varPaths.length > 0 ){
-      cl.fail('Unsquish cannot process [variables] in echobase paths.');
+      cl.fail('Unsquish cannot process [variables] inÂ echobaseÂ paths.');
       varPaths.forEach(nextVarPath =>
          clog(`${nextVarPath.areaName}: ${nextVarPath.areaPath}.`)
       );
