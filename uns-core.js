@@ -18,4 +18,15 @@ module.exports = filenameHPT => {
          areaPath: nextArea.path
       });
    }, []);
+   var varPaths = areaPaths.filter(
+      nextAreaPath => /\[.*\]/.test(nextAreaPath.areaPath)
+   );
+   if( varPaths.length > 0 ){
+      cl.fail('Unsquish cannot process [variables] in echobase paths.');
+      varPaths.forEach(nextVarPath =>
+         clog(`${nextVarPath.areaName}: ${nextVarPath.areaPath}.`)
+      );
+      clog('');
+      return;
+   }
 };
