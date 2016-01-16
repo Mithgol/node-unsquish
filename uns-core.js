@@ -1,3 +1,4 @@
+var path = require('path');
 var cl = require('ciel');
 var fidoconfig = require('fidoconfig');
 var Squish = require('fidonet-squish');
@@ -15,7 +16,7 @@ module.exports = filenameHPT => {
       }
       return prevArr.concat({
          areaName: nextArea.configName,
-         areaPath: nextArea.path
+         areaPath: path.resolve(filenameHPT, nextArea.path)
       });
    }, []);
    var varPaths = areaPaths.filter(
