@@ -6,6 +6,7 @@ var Squish = require('fidonet-squish');
 var clog = console.log;
 
 module.exports = filenameHPT => {
+   var dirnameHPT = path.dirname(filenameHPT);
    cl.status(`Operating on area descriptions from ${filenameHPT}`);
    var echoconf = fidoconfig.areas(filenameHPT);
    var areaPaths = echoconf.getAreaNames().reduce((prevArr, nextName) => {
@@ -16,7 +17,7 @@ module.exports = filenameHPT => {
       }
       return prevArr.concat({
          areaName: nextArea.configName,
-         areaPath: path.resolve(filenameHPT, nextArea.path)
+         areaPath: nextArea.path
       });
    }, []);
    var varPaths = areaPaths.filter(
@@ -30,4 +31,8 @@ module.exports = filenameHPT => {
       clog('');
       return;
    }
+   areaPaths = areaPaths.map(nextAreaPath => ({
+      areaName: nextAreaPath.areaName,
+      areaPath: path.resolve(dirnameHPT, nextAreaPath.areaPath)
+   }));
 };
