@@ -49,4 +49,4 @@ if( params.length < 1 ){
 
 var filenameHPT = params.pop();
 
-unsquish(filenameHPT);
+unsquish(filenameHPT, { rusMode: rusMode });

@@ -5,14 +5,22 @@ var Squish = require('fidonet-squish');
 
 var clog = console.log;
 
-module.exports = filenameHPT => {
+module.exports = (filenameHPT, options) => {
    var dirnameHPT = path.dirname(filenameHPT);
-   cl.status(`Operating on area descriptions from ${filenameHPT}`);
+   if( options.rusMode ){
+      cl.status(`Работаем по описаниям областей из ${filenameHPT}`);
+   } else cl.status(`Operating on area descriptions from ${filenameHPT}`);
    var echoconf = fidoconfig.areas(filenameHPT);
    var areaPaths = echoconf.getAreaNames().reduce((prevArr, nextName) => {
       var nextArea = echoconf[nextName];
       if( nextArea.passthrough ){
-         cl.skip(`Area ${nextArea.configName} is passthough. Skipped.`);
+         if( options.rusMode ){
+            cl.skip(
+               `Область ${nextArea.configName} пропущена, так как passthough.`
+            );
+         } else {
+            cl.skip(`Area ${nextArea.configName} is passthough. Skipped.`);
+         }
          return prevArr;
       }
       return prevArr.concat({
@@ -24,7 +32,13 @@ module.exports = filenameHPT => {
       nextAreaPath => /\[.*\]/.test(nextAreaPath.areaPath)
    );
    if( varPaths.length > 0 ){
-      cl.fail('Unsquish cannot process [variables] in echobase paths.');
+      if( options.rusMode ){
+         cl.fail(
+            'Unsquish не умеет обрабатывать [переменные] в путях к эхобазам.'
+         );
+      } else cl.fail(
+         'Unsquish cannot process [variables] in echobase paths.'
+      );
       varPaths.forEach(nextVarPath =>
          clog(`${nextVarPath.areaName}: ${nextVarPath.areaPath}.`)
       );
