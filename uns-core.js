@@ -1,4 +1,5 @@
 var path = require('path');
+var async = require('async');
 var cl = require('ciel');
 var fidoconfig = require('fidoconfig');
 var Squish = require('fidonet-squish');
@@ -49,4 +50,12 @@ module.exports = (filenameHPT, options) => {
       areaName: nextAreaPath.areaName,
       areaPath: path.resolve(dirnameHPT, nextAreaPath.areaPath)
    }));
+   async.eachSeries(
+      areaPaths,
+      (nextAreaPath, donePath) => {
+         
+      },
+      err => {
+      }
+   );
 };
