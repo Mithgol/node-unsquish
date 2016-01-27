@@ -53,7 +53,17 @@ module.exports = (filenameHPT, options) => {
    async.eachSeries(
       areaPaths,
       (nextAreaPath, donePath) => {
-         
+         var sqBase = Squish(nextAreaPath);
+         sqBase.readAllHeaders((err, sqHeaders) => {
+            if( err ) return donePath(err);
+            async.eachSeries(
+               sqHeaders,
+               (nextSquishHeader, doneHeader) => {
+               },
+               err => {
+               }
+            );
+         });
       },
       err => {
       }
