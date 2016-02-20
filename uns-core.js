@@ -61,11 +61,26 @@ module.exports = (filenameHPT, options) => {
                (nextSquishHeader, doneHeader) => {
                },
                err => {
+                  if( err ) return donePath(err);
+                  return donePath(null);
                }
             );
          });
       },
       err => {
+         if( err ){
+            if( options.rusMode ){
+               cl.fail(
+                  'Ошибка при работе Unsquish:'
+               );
+            } else cl.fail(
+               'Unsquish has encountered an error:'
+            );
+            throw err;
+         }
+         if( options.rusMode ){
+            cl.ok('Работа Unsquish успешно завершена.');
+         } else cl.ok('Unsquish has finished successfully.');
       }
    );
 };
