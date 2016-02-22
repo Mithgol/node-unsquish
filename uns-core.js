@@ -59,6 +59,7 @@ module.exports = (filenameHPT, options) => {
             async.eachSeries(
                sqHeaders,
                (nextSquishHeader, doneHeader) => {
+                  var decodedHeader = sqBase.decodeHeader(nextSquishHeader);
                },
                err => {
                   if( err ) return donePath(err);
