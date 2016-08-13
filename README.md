@@ -4,6 +4,8 @@ This module (`unsquish`) is an application that extracts Fidonet messages fro
 
 This application is written in JavaScript (ECMAScript 6) and requires [Node.js](http://nodejs.org/) version 4.2.2 or newer.
 
+The application is currently in an early phase of its development and thus does not have the desired level of feature completeness.
+
 ## Installing the application
 
 [![(npm package version)](https://nodei.co/npm/unsquish.png?downloads=true&downloadRank=true)](https://npmjs.org/package/unsquish)
