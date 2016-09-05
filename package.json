@@ -14,7 +14,7 @@
 },
 "dependencies": {
    "async": "~2.0.1",
-   "ciel": "~0.2.0",
+   "ciel": "~0.3.0",
    "fidoconfig": "~0.2.5",
    "fidonet-squish": "0.0.39"
 },
