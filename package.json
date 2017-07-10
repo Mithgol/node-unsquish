@@ -13,9 +13,9 @@
    "url": "https://github.com/Mithgol/node-unsquish.git"
 },
 "dependencies": {
-   "async": "~2.4.0",
+   "async": "~2.5.0",
    "ciel": "~0.3.0",
-   "fidoconfig": "~0.2.5",
+   "fidoconfig": "~1.0.0",
    "fidonet-squish": "0.0.39"
 },
 "scripts": {
